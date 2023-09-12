@@ -1,0 +1,24 @@
+{
+  "name": "ece-devops-henaux-gonnet",
+  "version": "1.0.0",
+  "description": "C",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabyformula1/ece-devops-henaux-gonnet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabyformula1/ece-devops-henaux-gonnet/issues"
+  },
+  "homepage": "https://github.com/gabyformula1/ece-devops-henaux-gonnet#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
