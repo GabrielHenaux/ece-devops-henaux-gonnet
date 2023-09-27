@@ -1,6 +1,8 @@
 const { expect } = require('chai')
 const userController = require('../src/controllers/user')
 const db = require('../src/dbClient')
+const { get } = require('../src/routes/user')
+const user = require('../src/controllers/user')
 
 describe('User', () => {
   
@@ -36,11 +38,32 @@ describe('User', () => {
       })
     })
 
-    // it('avoid creating an existing user', (done)=> {
-    //   // TODO create this test
-    //   // Warning: the user already exists
-    //   done()
-    // })
+    it('avoid creating an existing user', (done)=> {
+      // TODO create this test
+      const user = {
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
+      }
+      userController.create(user, (err, result) => {
+        expect(err).to.be.equal(null)
+        expect(result).to.be.equal('OK')
+        
+      })
+
+      userController.create(user, (err, result) => {
+        expect(err).to.not.be.equal(null)
+        expect(result).to.be.equal(null)
+        done()
+      })
+
+      
+
+    })
+
+      
+      // Warning: the user already exists
+    
   })
 
   // TODO Create test for the get method
