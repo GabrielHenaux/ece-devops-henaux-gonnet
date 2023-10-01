@@ -2,6 +2,7 @@ const app = require('../src/index')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const db = require('../src/dbClient')
+const userRouter = require('../src/routes/user')
 
 chai.use(chaiHttp)
 
@@ -59,7 +60,35 @@ describe('User REST API', () => {
     })
   })
 
-  // describe('GET /user', ()=> {
-  //   // TODO Create test for the get method
-  // })
+  describe('GET /user', ()=> {
+    // TODO Create test for the get method
+    it('get an existing user', (done) => {
+      const user = {
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
+      }
+      
+      user.router
+        .post('/user')
+        .send(user)
+        .then((res) => {
+          chai.request(app)
+            .get('/user/sergkudinov')
+            .then((res) => {
+              chai.expect(res).to.have.status(200)
+              chai.expect(res.body.status).to.equal('success')
+              chai.expect(res).to.be.json
+              done()
+            })
+            .catch((err) => {
+              throw err
+            })
+        })
+        .catch((err) => {
+          throw err
+        })
+        done()
+    })
+  })
 })
