@@ -1,2 +1,4 @@
-/node_modules
-/Labs/Lab_3_bis/node_modules
+node_modules
+.*
+!.gitignore
+```

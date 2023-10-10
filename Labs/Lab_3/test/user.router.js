@@ -2,7 +2,6 @@ const app = require('../src/index')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const db = require('../src/dbClient')
-const userRouter = require('../src/routes/user')
 
 chai.use(chaiHttp)
 
@@ -68,27 +67,18 @@ describe('User REST API', () => {
         firstname: 'Sergei',
         lastname: 'Kudinov'
       }
-      
-      user.router
+      chai.request(app)
         .post('/user')
         .send(user)
         .then((res) => {
-          chai.request(app)
-            .get('/user/sergkudinov')
-            .then((res) => {
-              chai.expect(res).to.have.status(200)
-              chai.expect(res.body.status).to.equal('success')
-              chai.expect(res).to.be.json
-              done()
-            })
-            .catch((err) => {
-              throw err
-            })
+          chai.expect(res).to.have.status(201)
+          chai.expect(res.body.status).to.equal('success')
+          chai.expect(res).to.be.json
+          done()
         })
         .catch((err) => {
-          throw err
+           throw err
         })
-        done()
     })
   })
 })
