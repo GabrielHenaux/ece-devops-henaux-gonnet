@@ -1,0 +1,15 @@
+version: '3'
+services:
+  redis:
+    image: redis 
+    volumes:
+      - redis_data:/data #This is where the data will be stored
+  web:
+    build: .
+    image: my-docker-app #This is how I called my image on docker hub
+    ports:
+      - "5000:8080" 
+    environment:
+      REDIS_HOST: redis 
+volumes:
+  redis_data:
