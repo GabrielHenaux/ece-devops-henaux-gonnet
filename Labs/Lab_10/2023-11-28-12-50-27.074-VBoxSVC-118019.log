@@ -1,0 +1,7 @@
+Log created: 2023-11-28T12:50:27.742046000Z
+Process ID:  118019 (0x1cd03)
+Parent PID:  1119 (0x45f)
+Executable:  /usr/lib/virtualbox/VBoxSVC
+Arg[0]: /usr/lib/virtualbox/VBoxSVC
+Arg[1]: --auto-shutdown
+AddRef: illegal refcnt=3221225469 state=2
