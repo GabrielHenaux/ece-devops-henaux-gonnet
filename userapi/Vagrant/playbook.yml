@@ -1,0 +1,33 @@
+
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Python 3 for Ansible (Ubuntu/Debian)
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python3)
+      changed_when: false
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+    - name: Install Python 3 for Ansible (RedHat/CentOS)
+      raw: test -e /usr/bin/python || (yum -y install python3)
+      changed_when: false
+      when: ansible_os_family == "RedHat"
+
+    - name: Update apt packages (Debian/Ubuntu)
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+    - name: Install necessary packages (Debian/Ubuntu)
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - git
+          - nodejs
+          - npm
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+    
