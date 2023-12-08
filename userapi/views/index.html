@@ -23,6 +23,12 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        article:hover {
+            transform: scale(1.03);
+            background-color: #e7f5ff;
         }
 
         h2 {
@@ -60,6 +66,21 @@
     <article>
         <h2>Kubernetes</h2>
         <p>Kubernetes is an open-source container-orchestration system for automating computer application deployment, scaling, and management.</p>
+    </article>
+
+    <article>
+        <h2>Istio</h2>
+        <p>Istio is an open-source service mesh that provides a way to control how microservices share data and resources.</p>
+    </article>
+
+    <article>
+        <h2>Prometheus</h2>
+        <p>Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.</p>
+    </article>
+
+    <article>
+        <h2>Grafana</h2>
+        <p>Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.</p>
     </article>
 </body>
 </html>
