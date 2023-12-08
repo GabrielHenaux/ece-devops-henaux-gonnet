@@ -18,56 +18,56 @@ jobs:
       matrix:
         node-version: [20.x]
         redis-version: [6.2.4]
-        
+    
     steps:
     - uses: actions/checkout@v3
-
-    # Redis
     - name: Start Redis
       uses: supercharge/redis-github-action@1.4.0
       with:
         redis-version: ${{ matrix.redis-version }}
-
-    # Node.js setup and cache
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: 'userapi/package.json'
-
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 
-    - name: Create and upload artifact
-      run: |
-        cd userapi
-        zip -r ../release.zip ./*
-        echo "Artifact created"
+    - name: Zip artifact for deployment
+      run: zip -r ../release.zip ./*
+      working-directory: userapi
+
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v3
+      with:
+        name: node-app
+        path: ./release.zip
       working-directory: .
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: CI
+    deploy:
+      runs-on: ubuntu-latest
+      needs: CI
+
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+   
     steps:
-      - name: Download artifact from CI job
-        uses: actions/download-artifact@v3
-        with:
-          name: node-app
+    - name: Download artifact from CI job
+      uses: actions/download-artifact@v3
+      with:
+        name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'DevOpsAppByMatheoAndGaby'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9D05AC32D0FF434C8ADADF239D4FF9CB }}
+    - name: Unzip artifact for deployment
+      run: unzip release.zip
+     
+    - name: 'Deploy to Azure Web App'
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'DevOpsAppByMatheoAndGaby'
+        slot-name: 'Production'
+        package: .
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9D05AC32D0FF434C8ADADF239D4FF9CB }}
