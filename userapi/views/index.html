@@ -1,96 +1,245 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>DevOps Project</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
-        }
-
-        h1 {
-            text-align: center;
+            line-height: 1.6;
             color: #333;
-            margin-top: 50px;
         }
-
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .navbar {
+            background-color: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .navbar a:hover {
+            background-color: #e8491d;
+            color: #ffffff;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a, header h1 {
+            padding: 5px 15px;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        header h1 {
+            float: left;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        footer {
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 3px solid #e8491d;
+            width: 100%;
+            position: relative;
+            left: 0;
+            bottom: 0;
+        }
         article {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
+            background: #ffffff;
+            color: #333;
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         article:hover {
-            transform: scale(1.03);
             background-color: #e7f5ff;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
-
-        h2 {
-            color: #333;
+        h1, h2, h3 {
+            color: #35424a;
         }
-
         p {
+            font-size: 17px;
+        }
+
+        .lexicon {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .lexicon h3 {
+            color: #35424a;
+            margin-top: 0;
+        }
+
+        .lexicon p {
             font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .lexicon div:not(:last-child) {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        section {
+            margin-top: 40px;
+            margin-bottom: 150px;
         }
     </style>
 </head>
-
 <body>
-    <h1>Welcome to the DevOps Project!</h1>
+    <header>
+        <div class="container">
+            <h1>DevOps Project</h1>
+            <nav class="navbar">
+                <a href="#overview">Project Overview</a>
+                <a href="#detailed-description">Detailed Description</a>
+                <a href="#lexicon">Lexicon</a>
+            </nav>
+        </div>
+    </header>
 
-    <article>
-        <h2>Node.js</h2>
-        <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine, ideal for building fast, scalable
-            network applications.</p>
-    </article>
+    <div class="container">
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p>This DevOps project encompasses a wide range of modern software development and deployment techniques. The project aims to create a robust web application, implement a comprehensive CI/CD pipeline, provision a virtual environment using Infrastructure as Code (IaC), containerize the application with Docker, orchestrate containers with Docker Compose and Kubernetes, establish a service mesh with Istio, and implement monitoring. The project will be thoroughly documented in the README.md file, and it allows for additional bonus tasks to further enhance the project's complexity and learning opportunities.
+            </p>
+        </section>
 
-    <article>
-        <h2>Next.js</h2>
-        <p>Next.js is a React framework that enables functionality such as server-side rendering and generating static
-            websites for React based web applications.</p>
-    </article>
+    <section id="detailed-description">
+        <h2>Detailed Project Description</h2>
+        <article>
+            <h3>1. Create a Web Application</h3>
+            <p>Develop a web application using a programming language of your choice, integrating it with a database. The application should have CRUD functionality, and comprehensive tests should be written to cover various aspects of the application, including unit, API, and connection tests.</p>
+        </article>
 
-    <article>
-        <h2>Docker</h2>
-        <p>Docker is a set of platform as a service products that use OS-level virtualization to deliver software in
-            packages called containers.</p>
-    </article>
+        <article>
+            <h3>2. Apply CI/CD Pipeline</h3>
+            <p>Set up a Continuous Integration and Continuous Delivery pipeline using tools like GitHub Actions or Jenkins. The pipeline should automate the testing and deployment of your application.</p>
+        </article>
 
-    <article>
-        <h2>Vagrant</h2>
-        <p>Vagrant is an open-source software product for building and maintaining portable virtual software development
-            environments.</p>
-    </article>
+        <article>
+            <h3>3. IaC with Vagrant and Ansible</h3>
+            <p>Use Infrastructure as Code principles to configure and provision a virtual environment. Utilize Vagrant for VM management and Ansible for automation, ensuring your application and its dependencies are correctly set up.</p>
+        </article>
 
-    <article>
-        <h2>Kubernetes</h2>
-        <p>Kubernetes is an open-source container-orchestration system for automating computer application deployment,
-            scaling, and management.</p>
-    </article>
+        <article>
+            <h3>4. Build Docker Image</h3>
+            <p>Create a Docker image of your application and push it to Docker Hub. Ensure to use a .dockerignore file to exclude unnecessary files from the image.</p>
+        </article>
 
-    <article>
-        <h2>Istio</h2>
-        <p>Istio is an open-source service mesh that provides a way to control how microservices share data and
-            resources.</p>
-    </article>
+        <article>
+            <h3>5. Docker Compose Orchestration</h3>
+            <p>Write a docker-compose.yml file that orchestrates the start-up of your application, defining the necessary services and their configurations.</p>
+        </article>
 
-    <article>
-        <h2>Prometheus</h2>
-        <p>Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.</p>
-    </article>
+        <article>
+            <h3>6. Kubernetes Orchestration</h3>
+            <p>Deploy your application on a Kubernetes cluster set up using Minikube. Create the necessary Kubernetes manifest files for deployments, services, and volume management.</p>
+        </article>
 
-    <article>
-        <h2>Grafana</h2>
-        <p>Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert
-            on, and understand your metrics no matter where they are stored.</p>
-    </article>
+        <article>
+            <h3>7. Service Mesh with Istio</h3>
+            <p>Implement a service mesh for your application using Istio. Configure routing and traffic shifting between different versions of your application.</p>
+        </article>
+
+        <article>
+            <h3>8. Implement Monitoring</h3>
+            <p>Install Prometheus and Grafana for monitoring your containerized application. Set up Prometheus to pull application metrics and Grafana to visualize these metrics, along with setting up alerts.</p>
+        </article>
+
+        <article>
+            <h3>9. Project Documentation</h3>
+            <p>Document your project in a README.md file. Include a summary of the work performed, screenshots, instructions for installation, usage, and testing, along with links to integrated platforms and tools.</p>
+        </article>
+    </section>
+
+    
+    <section id="lexicon" class="container">
+        <h2>Lexicon of Tools</h2>
+        <div class="lexicon">
+            <div>
+                <h3>Node.js</h3>
+                <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine, ideal for building fast, scalable network applications.</p>
+            </div>
+
+            <div>
+                <h3>Next.js</h3>
+                <p>Next.js is a React framework that enables functionality such as server-side rendering and generating static websites for React based web applications.</p>
+            </div>
+
+            <div>
+                <h3>Docker</h3>
+                <p>Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.</p>
+            </div>
+
+            <div>
+                <h3>Vagrant</h3>
+                <p>Vagrant is an open-source software product for building and maintaining portable virtual software development environments.</p>
+            </div>
+
+            <div>
+                <h3>Kubernetes</h3>
+                <p>Kubernetes is an open-source container-orchestration system for automating computer application deployment, scaling, and management.</p>
+            </div>
+
+            <div>
+                <h3>Istio</h3>
+                <p>Istio is an open-source service mesh that provides a way to control how microservices share data and resources.</p>
+            </div>
+
+            <div>
+                <h3>Prometheus</h3>
+                <p>Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.</p>
+            </div>
+
+            <div>
+                <h3>Grafana</h3>
+                <p>Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>Created by Matheo Gonnet and Gabriel Henaux</p>
+        </div>
+    </footer>
 </body>
-
 </html>
