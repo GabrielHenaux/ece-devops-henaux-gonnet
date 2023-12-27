@@ -7,8 +7,12 @@
 - **Tests:** Unit, API, configuration, connection tests
 
 ## 2. CI/CD Pipeline
-- **Platform:** GitHub Actions
-- **Deployment Platform:** Azure
+## 2. CI/CD Pipeline
+
+| Aspect                   | Details                                 |
+|--------------------------|-----------------------------------------|
+| Platform                 | GitHub Actions                          |
+| Deployment Platform      | Azure                                   |
 - **Pipeline Steps:** 
   - Unit Tests
   - Build Docker Image
@@ -37,6 +41,18 @@
 - **Tools and Platforms Used:** Vscode, GitHub, Docker, Kubernetes, Stackoverflow, ChatGPT
 
 ## How to Use This Project
-Lauch the automation file on github actions
 
+To deploy this project using the "Node.js | Redis CI/CD" automation in GitHub Actions:
+
+1. **Navigate to GitHub Actions:** Go to the "Actions" tab of this repository.
+
+2. **Select the Workflow:** Under the "Workflows" section, click on the "Node.js | Redis CI/CD" workflow.
+
+3. **Run Workflow:** Click the "Run workflow" button to start the CI/CD process. 
+
+4. **Monitor the Deployment:** You can monitor the progress and status of the CI/CD pipeline in the workflow execution logs.
+
+5. **Access Your Deployed Application:** Once the CI/CD pipeline successfully completes, you can access your deployed Node.js application with Redis using the provided deployment platform (e.g., Azure).
+
+By following these steps, you can easily deploy this project using the automation provided by the "Node.js | Redis CI/CD" workflow in GitHub Actions.
 
