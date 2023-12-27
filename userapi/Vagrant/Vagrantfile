@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.define("userapiVM")
   config.vm.box = "debian/buster64"
   config.vm.network "private_network", type: "dhcp"
   config.vm.provider "virtualbox" do |vb|
