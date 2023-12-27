@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: devops-project
-        image: devops-project-image:latest
+        image: matheogonnet/devops-project-image :latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
