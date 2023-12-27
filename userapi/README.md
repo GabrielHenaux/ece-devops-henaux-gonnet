@@ -20,10 +20,10 @@
 - **Dockerfile:** installation and lauching of NODE
 - **Docker Hub Repository:** TODO:Provide a link to the Docker Hub repository
 
-## 5. Docker Compose Orchestration
+## 4. Docker Compose Orchestration
 - **docker-compose.yml:** Integaration of redis and orchestration of the app
 
-## 6. Kubernetes Orchestration
+## 5. Kubernetes Orchestration
 - **Kubernetes Cluster:** Setup using Minikube
 - **Manifest Files:** 
 - deployment.yaml for deploying the application in with Docker
