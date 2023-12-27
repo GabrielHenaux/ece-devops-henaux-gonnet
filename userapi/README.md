@@ -18,7 +18,7 @@
 
 ## 3. Dockerization
 - **Dockerfile:** installation and lauching of NODE
-- **Docker Hub Repository:**[matheogonnet/devops-project-image]
+- **Docker Hub Repository:** [matheogonnet/devops-project-image](https://hub.docker.com/r/matheogonnet/devops-project-image)
 
 ## 4. Docker Compose Orchestration
 - **docker-compose.yml:** Integaration of redis and orchestration of the app
