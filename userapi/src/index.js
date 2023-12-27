@@ -34,6 +34,7 @@ app.post('/votre-route-cible', (req, res) => {
 const server = app.listen(port, (err) => {
   if (err) throw err
   console.log("Server listening the port " + port)
+  console.log("http://localhost:"+port)
 })
 
 
