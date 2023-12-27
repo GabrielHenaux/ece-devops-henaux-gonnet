@@ -1,64 +1,42 @@
-# User API web application
+**DevOps Project README**
 
-It is a basic NodeJS web application exposing REST API that creates and stores user parameters in [Redis database](https://redis.io/).
 
-## Functionality
+## 1. Web Application Development
+- **Programming Language and Framework:** NodeJS with Express
+- **Database:** Redis
+- **Tests:** Unit, API, configuration, connection tests
 
-1. Start a web server
-2. Create a user
-2. Get a user
+## 2. CI/CD Pipeline
+- **Platform:** GitHub Actions
+- **Deployment Platform:** Azure
+- **Pipeline Steps:** 
+  - Unit Tests
+  - Build Docker Image
+  - Push Docker Image to Docker Hub
+  - Deploy to Azure Kubernetes Service (AKS)
+  - Run API Tests
 
-## Installation
+## 3. Dockerization
+- **Dockerfile:** installation and lauching of NODE
+- **Docker Hub Repository:** TODO:Provide a link to the Docker Hub repository
 
-This application is written on NodeJS and it uses Redis database.
+## 5. Docker Compose Orchestration
+- **docker-compose.yml:** Integaration of redis and orchestration of the app
 
-1. [Install NodeJS](https://nodejs.org/en/download/)
+## 6. Kubernetes Orchestration
+- **Kubernetes Cluster:** Setup using Minikube
+- **Manifest Files:** 
+- deployment.yaml for deploying the application in with Docker
+- service.yaml for exposing the application as a service
+- pv.yaml for persistent volume of the application
+- pvc.yaml for claiming the persistent volume
 
-2. [Install Redis](https://redis.io/download)
 
-3. Install application
+## Additional Information
+- **Authors:** Mathéo GONNET and Gabriel HENAUX
+- **Tools and Platforms Used:** Vscode, GitHub, Docker, Kubernetes, Stackoverflow, ChatGPT
 
-Go to the root directory of the application (where `package.json` file located) and run:
+## How to Use This Project
+Lauch the automation file on github actions
 
-```
-npm install 
-```
 
-## Usage
-
-1. Start a web server
-
-From the root directory of the project run:
-
-```
-npm start
-```
-
-It will start a web server available in your browser at http://localhost:3000.
-
-2. Create a user
-
-Send a POST (REST protocol) request using terminal:
-
-```bash
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"username":"sergkudinov","firstname":"sergei","lastname":"kudinov"}' \
-  http://localhost:3000/user
-```
-
-It will output:
-
-```
-{"status":"success","msg":"OK"}
-```
-
-Another way to test your REST API is to use [Postman](https://www.postman.com/).
-
-## Testing
-
-From the root directory of the project, run:
-
-```
-npm test
-```
