@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+        <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #35424a; /* Couleur de fond comme celle des boutons */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #ffffff; /* Texte blanc pour contraster avec le fond sombre */
+        }
+
+        h2 {
+            color: #ffffff; /* Texte blanc pour les titres */
+        }
+        
+        h3{
+            color: #35424a;
+        }
+        form {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: #333; /* Texte noir pour le contenu du formulaire */
+        }
+
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 8px;
+            width: calc(100% - 20px);
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #e8491d; /* Boutons orange */
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #cc3c14; /* Un peu plus foncé lors du survol */
+        }
+    </style>
+</head>
+<body>
+    <h2>User Management</h2>
+
+    <!-- Create Form -->
+    <form id="createUserForm">
+        <h3>Create User</h3>
+        <input type="text" id="createUsername" placeholder="Username">
+        <input type="text" id="createFirstname" placeholder="First Name">
+        <input type="text" id="createLastname" placeholder="Last Name">
+        <button type="submit">Create</button>
+    </form>
+
+    <!-- Read Form -->
+    <form id="getUserForm">
+        <h3>Get User</h3>
+        <input type="text" id="getUsername" placeholder="Username">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Update Form -->
+    <form id="updateUserForm">
+        <h3>Update User</h3>
+        <input type="text" id="updateOldUsername" placeholder="Old Username">
+        <input type="text" id="updateNewUsername" placeholder="New Username">
+        <input type="text" id="updateFirstname" placeholder="New First Name">
+        <input type="text" id="updateLastname" placeholder="New Last Name">
+        <button type="submit">Update</button>
+    </form>
+    
+    <!-- Delete Form -->
+    <form id="deleteUserForm">
+        <h3>Delete User</h3>
+        <input type="text" id="deleteUsername" placeholder="Username">
+        <button type="submit">Delete</button>
+    </form>
+
+    <script>
+    // Fonction pour envoyer une requête à l'API et gérer les réponses
+    function sendRequest(url, method, data) {
+        return fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: method === 'GET' ? null : JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert("Action performed successfully!");
+            return data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred!");
+        });
+    }
+
+
+    // Gestion du formulaire de création
+    document.getElementById('createUserForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const data = {
+            username: document.getElementById('createUsername').value,
+            firstname: document.getElementById('createFirstname').value,
+            lastname: document.getElementById('createLastname').value
+        };
+        sendRequest('http://localhost:3000/user', 'POST', data);
+    });
+
+     // Gestion du formulaire de mise à jour
+     document.getElementById('updateUserForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const oldUsername = document.getElementById('updateOldUsername').value;
+        const data = {
+            newUsername: document.getElementById('updateNewUsername').value,
+            firstname: document.getElementById('updateFirstname').value,
+            lastname: document.getElementById('updateLastname').value
+        };
+        sendRequest(`http://localhost:3000/user/${oldUsername}`, 'PUT', data);
+    });
+
+    // Gestion du formulaire de recherche
+    document.getElementById('getUserForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('getUsername').value;
+        window.open(`http://localhost:3000/user/${username}`, '_blank');
+    });
+
+    // Gestion du formulaire de suppression
+    document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('deleteUsername').value;
+        sendRequest(`http://localhost:3000/user/${username}`, 'DELETE');
+    });
+</script>
+
+  
+</body>
+</html>
