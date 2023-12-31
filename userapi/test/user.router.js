@@ -19,6 +19,7 @@ describe('User REST API', () => {
     db.quit();
   });
 
+  
   // Tests for POST /user
   describe('POST /user', () => {
     it('create a new user', (done) => {
@@ -151,7 +152,7 @@ describe('User REST API', () => {
       chai.request(app)
         .delete('/user/nonexistinguser')
         .end((err, res) => {
-          expect(res).to.have.status(404);
+          expect(res).to.have.status(404)ro;
           expect(res.body.status).to.equal('error');
           expect(res).to.be.json;
           done();

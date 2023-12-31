@@ -12,7 +12,7 @@ userRouter.post('/', (req, resp) => {
         status: "error",
         msg: err.message
       };
-      return resp.status(404).json(respObj);
+      return resp.status(400).json(respObj);
     }
     respObj = {
       status: "success",
