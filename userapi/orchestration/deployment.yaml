@@ -11,9 +11,11 @@ spec:
     metadata:
       labels:
         app: devops-project
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
       - name: devops-project
-        image: matheogonnet/devops-project-image :latest
+        image: matheogonnet/devops-project-image:latest
         ports:
         - containerPort: 3000

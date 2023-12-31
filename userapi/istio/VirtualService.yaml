@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: my-virtualservice
+  namespace: app-namespace
+spec:
+  hosts:
+  - devops-project-service
+  http:
+  - route:
+    - destination:
+        host: devops-project-service
+        port:
+          number: 80
+        port:
+          number: 80

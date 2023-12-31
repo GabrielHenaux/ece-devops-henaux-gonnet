@@ -8,8 +8,9 @@
 5. [Dockerization](#3-dockerization)
 6. [Docker Compose Orchestration](#4-docker-compose-orchestration)
 7. [Kubernetes Orchestration](#5-kubernetes-orchestration)
-8. [How to Use This Project](#how-to-use-this-project)
-9. [Additional Information](#additional-information)
+8. [Istio configuration](#6-istio-configuration)
+9. [How to Use This Project](#how-to-use-this-project)
+10. [Additional Information](#additional-information)
 
 ## 1. Web Application Development
 - **Programming Language and Framework:** NodeJS with Express
@@ -81,7 +82,23 @@ To manage users through the web interface (use the REST API directly from the we
   - pv.yaml for persistent volume of the application
   - pvc.yaml for claiming the persistent volume
 
-## 8. How to Use This Project
+
+## 8. Istio configuration
+
+Istio is a powerful service mesh that provides us with a way to control how microservices communicate with each other. It offers advanced traffic management capabilities, security features, and observability into our application's communication patterns. In our project, Istio is used to inject sidecars into Kubernetes pods, which then manage traffic flow, enforce policies, and collect telemetry data. This enables features like intelligent routing, traffic shifting between different versions of a service, and enhanced monitoring.
+
+To leverage Istio in our environment, users should be aware of key Istio components such as VirtualServices for defining fine-grained traffic routing rules, DestinationRules for configuring what happens to traffic after routing, and Gateways for managing external access to our services. Users can interact with these configurations to control the traffic flow, perform canary deployments, and gain insights into the application's performance and behavior. For example, by altering VirtualService configurations, users can shift traffic between different service versions to test new features in a controlled manner.
+
+Our setup includes detailed configurations of these components, allowing for sophisticated traffic management and monitoring capabilities, enriching our DevOps practices and providing a robust platform for our microservices architecture.
+
+Istio is already insstallled on the app. However if there is a problem on your machine, please insatll istio. 
+Once you have istio installed, you can use the port-forwarding by using the following command on a new terminal:
+
+kubectl port-forward svc/devops-project-service 8080:80 -n app-namespace
+
+After you can just curl or access the app and istio
+
+## 9. How to Use This Project
 
 To deploy this project using the "Node.js | Redis CI/CD" automation in GitHub Actions:
 
@@ -97,6 +114,6 @@ To deploy this project using the "Node.js | Redis CI/CD" automation in GitHub Ac
 
 By following these steps, you can easily deploy this project using the automation provided by the "Node.js | Redis CI/CD" workflow in GitHub Actions.
 
-## 9. Additional Information
+## 10. Additional Information
 - **Authors:** Mathéo GONNET and Gabriel HENAUX
 - **Tools and Platforms Used:** Vscode, GitHub, Docker, Kubernetes, Stackoverflow, ChatGPT
