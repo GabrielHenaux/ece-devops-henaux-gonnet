@@ -17,7 +17,24 @@
 - **Tests:** Unit, API, configuration, connection tests
 
 
-## 2. Using the User Management Interface
+## 2. REST API Usage
+Our project includes a RESTful API for user management. Here's how to use it:
+
+- **Base URL:** `http://localhost:3000`
+- **Endpoints:**
+  - `POST /user`: Create a new user. Requires a JSON payload with `username`, `firstname`, and `lastname`.
+  - `GET /user/:username`: Retrieve details of a user by their username.
+  - `PUT /user/:username`: Update details of an existing user. The JSON payload can include `newUsername`, `firstname`, and/or `lastname`.
+  - `DELETE /user/:username`: Delete a user by their username.
+
+- **Using the API:**
+  - Use HTTP clients like Postman or command-line tools like curl to send requests to these endpoints.
+  - Ensure to set the `Content-Type` header to `application/json` for requests that require a payload.
+  - Interpret HTTP response codes and payloads to understand the outcome of your requests.
+  - You can also access directly the [User Management](#2-using-the-user-management-interface) page to use the REST API with all the CRUD methods.
+
+
+## 3. Using the User Management Interface
 To manage users through the web interface (use the REST API directly from the web interface):
 
 - **Access the Interface:** Open the website and navigate to the 'User Management' tab.
@@ -33,21 +50,6 @@ To manage users through the web interface (use the REST API directly from the we
 - **Delete a User:** 
   - Enter the username in the 'Delete User' form.
   - Click the 'Delete' button to remove the user from the system.
-
-## 3. REST API Usage
-Our project includes a RESTful API for user management. Here's how to use it:
-
-- **Base URL:** `http://localhost:3000`
-- **Endpoints:**
-  - `POST /user`: Create a new user. Requires a JSON payload with `username`, `firstname`, and `lastname`.
-  - `GET /user/:username`: Retrieve details of a user by their username.
-  - `PUT /user/:username`: Update details of an existing user. The JSON payload can include `newUsername`, `firstname`, and/or `lastname`.
-  - `DELETE /user/:username`: Delete a user by their username.
-
-- **Using the API:**
-  - Use HTTP clients like Postman or command-line tools like curl to send requests to these endpoints.
-  - Ensure to set the `Content-Type` header to `application/json` for requests that require a payload.
-  - Interpret HTTP response codes and payloads to understand the outcome of your requests.
 
 
 ## 4. CI/CD Pipeline

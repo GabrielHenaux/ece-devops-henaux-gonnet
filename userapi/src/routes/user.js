@@ -12,7 +12,7 @@ userRouter.post('/', (req, resp) => {
         status: "error",
         msg: err.message
       };
-      return resp.status(400).json(respObj);
+      return resp.status(404).json(respObj);
     }
     respObj = {
       status: "success",
@@ -32,7 +32,7 @@ userRouter.get('/:username', (req, resp) => {
         status: "error",
         msg: err.message
       };
-      return resp.status(400).json(respObj);
+      return resp.status(404).json(respObj);
     }
     respObj = {
       status: "success",
@@ -52,7 +52,7 @@ userRouter.put('/:username', (req, resp) => {
         status: "error",
         msg: err.message
       };
-      return resp.status(400).json(respObj);
+      return resp.status(404).json(respObj);
     }
     respObj = {
       status: "success",
@@ -72,7 +72,7 @@ userRouter.delete('/:username', (req, resp) => {
         status: "error",
         msg: err.message
       };
-      return resp.status(400).json(respObj);
+      return resp.status(404).json(respObj);
     }
     respObj = {
       status: "success",
