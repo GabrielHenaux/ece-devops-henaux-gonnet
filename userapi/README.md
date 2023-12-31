@@ -31,7 +31,7 @@ Our project includes a RESTful API for user management. Here's how to use it:
   - Use HTTP clients like Postman or command-line tools like curl to send requests to these endpoints.
   - Ensure to set the `Content-Type` header to `application/json` for requests that require a payload.
   - Interpret HTTP response codes and payloads to understand the outcome of your requests.
-  - You can also access directly the [User Management](#2-using-the-user-management-interface) page to use the REST API with all the CRUD methods.
+  - You can also access directly the [User Management](#2-using-the-user-management-interface) page to use the REST API with all the CRUD methods. /!\ The API is not available on the website when it is deployed on Azure due to the fact that the API is not exposed to the outside world (routing is different on Azure).
 
 
 ## 3. Using the User Management Interface
